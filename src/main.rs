@@ -32,11 +32,11 @@ fn main() {
 
     let domain = url.host_str().expect("Domain name is required");
 
-    let dns_server: Ipv4Addr = dns_server_text
+    let _dns_server: Ipv4Addr = dns_server_text
         .parse()
         .expect("Unable to parse DNS server address as an IPv4 address");
 
-    let addr = dns::resolve(dns_server_text, domain).unwrap();
+    let addr = dns::resolve(dns_server_text, domain).unwrap().unwrap();
 
     let mac = ethernet::MacAddress::new().into();
 
